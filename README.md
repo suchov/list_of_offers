@@ -30,6 +30,16 @@ You will also see any lint errors in the console.
 
 Ping me if you thing I should re-write it in pure CSS
 
+## I took the price form a day price 
+
+Let me know if I need to use another one
+
+## I took the image url that is on S3 so there is no CORS problem when running the app
+
+## I also added search so you can search by modes like "X5" or model(brand) audi, bmw, opel...
+
+
+
 <!-- 
 ### `npm test`
 
