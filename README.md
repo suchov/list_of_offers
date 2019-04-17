@@ -1,10 +1,24 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Project for SIXT test task
+
+```
+Please create a list of offers from that endpoint:
+https://content.sixt.io/codingtasks/offers.json
+ 
+The work should be done with react/redux and uploaded to a git repo of your choice. As we do not have a proper cross origin header for that endpoint please use something like the Moesif CORS Plugin for development.
+ 
+1. the offers should be displayed in a responsive grid, each offer-tile should have a square format. Fullsize would maybe result in 4 tiles per row, mobile view would have only two tiles per row.
+ 
+2. the offers should be sortable by the options in the key ‚sortIndexes‘
+ 
+Design may be done roughly, just to show the responsive behaviour. Offers should display only name, image and a price.
+```
 
 ## Available Scripts
 
 In the project directory, you can run:
 
 ### `npm start`
+### `yarn start`
 
 Runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -12,6 +26,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br>
 You will also see any lint errors in the console.
 
+<!-- 
 ### `npm test`
 
 Launches the test runner in the interactive watch mode.<br>
@@ -65,4 +80,5 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 
 ### `npm run build` fails to minify
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify 
+-->
