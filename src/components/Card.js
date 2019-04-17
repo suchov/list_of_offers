@@ -1,12 +1,12 @@
 import React from 'react';
 
-const Card = () => {
+const Card = ({ name, price, currency, id, imageUrl}) => {
   return (
     <div className="tc dib br3 pa3 ma2 grow bw2 shadow-5">
-      <img src="https://s3.eu-central-1.amazonaws.com/sixt-vehicle-group-info-images-stage/cd5599d916715ec5835be76dad652528de027379.jpg" alt="car"/>
+      <img src={imageUrl} alt="car"/>
       <div>
-        <h2>Name: BMW 3 Series Aut.</h2>
-        <h2>Price: 195.66 USD</h2>
+        <h2>Name: {name}</h2>
+        <h2>Price: {price} {currency}</h2>
       </div>
     </div>
   )
