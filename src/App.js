@@ -14,13 +14,9 @@ class App extends Component {
 
   componentDidMount() {
     fetch("https://content.sixt.io/codingtasks/offers.json")
-      .then(response => {
-        return response.json();
-    })
-    .then(cars => {
-      this.setState({ cars: cars.offers })
-    })
-  }
+      .then(response => response.json())
+      .then(cars => this.setState({ cars: cars.offers }));
+    }
   
 
   onSearchChange = (event) => {
@@ -30,17 +26,19 @@ class App extends Component {
   render() {
     const filteredCars = this.state.cars.filter(car => {
       return car.carGroupInfo.modelExample.name.toLowerCase().includes(this.state.searchField.toLowerCase());
-      
-      
     })
-    return (
-      <div className="tc">
-        <h1 className="f1">SIXT list</h1>
-        <SearchBox searchChange={this.onSearchChange}/>
-        <Filtering />
-        <CardList cars={filteredCars} />
-      </div>
-    );
+    if (this.state.cars.length === 0) {      
+      return <h1 className="f1 tc">Loading...</h1>
+    } else {
+      return (
+        <div className="tc">
+          <h1 className="f1">SIXT list</h1>
+          <SearchBox searchChange={this.onSearchChange} />
+          <Filtering />
+          <CardList cars={filteredCars} />
+        </div>
+      );
+    }
   }
 }
 
