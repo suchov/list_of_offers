@@ -25,23 +25,22 @@ class App extends Component {
   }
 
   render() {
-    const filteredCars = this.state.cars.filter(car => {
-      return car.carGroupInfo.modelExample.name.toLowerCase().includes(this.state.searchField.toLowerCase());
+    const {cars, searchField} = this.state;
+    const filteredCars = cars.filter(car => {
+      return car.carGroupInfo.modelExample.name.toLowerCase().includes(searchField.toLowerCase());
     })
-    if (this.state.cars.length === 0) {      
-      return <h1 className="f1 tc">Loading...</h1>
-    } else {
-      return (
-        <div className="tc">
-          <h1 className="f1">SIXT list</h1>
-          <SearchBox searchChange={this.onSearchChange} />
-          <Filtering />
-          <Scroll>
-            <CardList cars={filteredCars} />
-          </Scroll>
-        </div>
-      );
-    }
+    return !cars.length ?
+    <h1 className="f1 tc">Loading...</h1> :
+    (
+      <div className="tc">
+        <h1 className="f1">SIXT list</h1>
+        <SearchBox searchChange={this.onSearchChange} />
+        <Filtering />
+        <Scroll>
+          <CardList cars={filteredCars} />
+        </Scroll>
+      </div>
+    );
   }
 }
 
