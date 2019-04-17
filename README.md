@@ -26,6 +26,10 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br>
 You will also see any lint errors in the console.
 
+## I used small library tachyons [docs](https://tachyons.io/docs/elements/forms/) to help me with some basic styling
+
+Ping me if you thing I should re-write it in pure CSS
+
 <!-- 
 ### `npm test`
 
