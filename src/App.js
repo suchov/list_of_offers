@@ -2,30 +2,40 @@ import React, { Component } from 'react';
 import CardList from './components/CardList';
 import SearchBox from './components/SearchBox';
 import Filtering from './components/Filtering';
-import { cars } from './cars';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      cars: cars,
+      cars: [],
       searchField: ""
     }
   }
+
+  componentDidMount() {
+    fetch("https://content.sixt.io/codingtasks/offers.json")
+      .then(response => {
+        return response.json();
+    })
+    .then(cars => {
+      this.setState({ cars: cars.offers })
+    })
+  }
+  
 
   onSearchChange = (event) => {
     this.setState({searchField: event.target.value})
   }
 
   render() {
-    const filteredCars = this.state.cars[0].offers.filter(car => {
+    const filteredCars = this.state.cars.filter(car => {
       return car.carGroupInfo.modelExample.name.toLowerCase().includes(this.state.searchField.toLowerCase());
       
       
     })
     return (
       <div className="tc">
-        <h1>SIXT list</h1>
+        <h1 className="f1">SIXT list</h1>
         <SearchBox searchChange={this.onSearchChange}/>
         <Filtering />
         <CardList cars={filteredCars} />
