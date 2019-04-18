@@ -1,12 +1,12 @@
-import React from 'react';
-import Card from './Card';
+import React from "react";
+import Card from "./Card";
 
 const CardList = ({ cars }) => {
   return (
     <div>
-      {
-        cars.map(car => {
-          return <Card
+      {cars.map(car => {
+        return (
+          <Card
             key={car.id}
             name={car.carGroupInfo.modelExample.name}
             price={car.prices.dayPrice.amount.value}
@@ -16,10 +16,10 @@ const CardList = ({ cars }) => {
             indexePrice={car.sortIndexes.price}
             indexePopularity={car.sortIndexes.popularity}
           />
-        })
-      }
+        );
+      })}
     </div>
-  )
-}
+  );
+};
 
 export default CardList;
