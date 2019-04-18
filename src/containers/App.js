@@ -18,23 +18,17 @@ class App extends Component {
     fetch("https://content.sixt.io/codingtasks/offers.json")
       .then(response => response.json())
       .then(cars => this.setState({ cars: cars.offers }));
-    }
+  }
   
-  onSearchChange = (event) => {
-    this.setState({searchField: event.target.value})
+  onSearchChange = ({target}) => {
+    this.setState({searchField: target.value})
   }
 
-  onButtonClick = (event) => {
-    switch (event.target.value) {
-      case 'price':
-        this.setState({ cars: this.state.cars.sort((a, b) => a.sortIndexes.price - b.sortIndexes.price) });
-        break;
-      case 'popularity':
-        this.setState({ cars: this.state.cars.sort((a, b) => a.sortIndexes.popularity - b.sortIndexes.popularity) });
-        break;
-      default:
-        this.setState({ cars: this.state.cars.sort((a, b) => a.sortIndexes.name - b.sortIndexes.name) });
-    }
+  onButtonClick = ({target}) => {
+    const { cars } = this.state
+    this.setState({
+      cars: cars.sort((a, b) => a.sortIndexes[target.value] - b.sortIndexes[target.value])
+    })
   }
 
   render() {
