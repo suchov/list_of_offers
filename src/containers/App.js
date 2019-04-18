@@ -36,9 +36,8 @@ class App extends Component {
     const filteredCars = cars.filter(car => {
       return car.carGroupInfo.modelExample.name.toLowerCase().includes(searchField.toLowerCase());
     })
-    return !cars.length ?
-    <h1 className="f1 tc">Loading...</h1> :
-    (
+    if (!cars.length) { return <h1 className="f1 tc">Loading...</h1> }
+    return (
       <div className="tc">
         <h1 className="f1">SIXT list</h1>
         <SearchBox searchChange={this.onSearchChange} />

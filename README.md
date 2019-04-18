@@ -38,7 +38,7 @@ Let me know if I need to use another one
 
 ## I also added search so you can search by modes like "X5" or model(brand) audi, bmw, opel...
 
-
+## I made the pure React version first, for a small application I think I would stay without Redux, you can check it by switching to tag 1
 
 <!-- 
 ### `npm test`
