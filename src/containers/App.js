@@ -9,7 +9,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      cars: [],
+      cars: [],  
       searchField: ""
     }
   }
@@ -20,13 +20,25 @@ class App extends Component {
       .then(cars => this.setState({ cars: cars.offers }));
     }
   
-
   onSearchChange = (event) => {
     this.setState({searchField: event.target.value})
   }
 
+  onButtonClick = (event) => {
+    switch (event.target.value) {
+      case 'price':
+        this.setState({ cars: this.state.cars.sort((a, b) => a.sortIndexes.price - b.sortIndexes.price) });
+        break;
+      case 'popularity':
+        this.setState({ cars: this.state.cars.sort((a, b) => a.sortIndexes.popularity - b.sortIndexes.popularity) });
+        break;
+      default:
+        this.setState({ cars: this.state.cars.sort((a, b) => a.sortIndexes.name - b.sortIndexes.name) });
+    }
+  }
+
   render() {
-    const {cars, searchField} = this.state;
+    const { cars, searchField } = this.state;
     const filteredCars = cars.filter(car => {
       return car.carGroupInfo.modelExample.name.toLowerCase().includes(searchField.toLowerCase());
     })
@@ -36,7 +48,7 @@ class App extends Component {
       <div className="tc">
         <h1 className="f1">SIXT list</h1>
         <SearchBox searchChange={this.onSearchChange} />
-        <Filtering />
+        <Filtering nandleClick={this.onButtonClick} />
         <Scroll>
           <ErrorBoundry>
             <CardList cars={filteredCars} />
