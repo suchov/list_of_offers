@@ -6,13 +6,10 @@ import Scroll from "../components/Scroll";
 import ErrorBoundry from "../components/ErrorBoundry";
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      cars: [],
-      searchField: ""
-    };
-  }
+  state = {
+    cars: [],
+    searchField: ""
+  };
 
   componentDidMount() {
     fetch("https://content.sixt.io/codingtasks/offers.json")
