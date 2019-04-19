@@ -5,33 +5,31 @@ import SearchBox from "../components/SearchBox";
 import Filtering from "../components/Filtering";
 import Scroll from "../components/Scroll";
 import ErrorBoundry from "../components/ErrorBoundry";
-import { setSearchField } from '../actions';
+import { setSearchField, requestCars } from "../actions";
 
 const mapStateToProps = state => {
   return {
-    searchField: state.searchField
-  }
-}
+    searchField: state.searchCars.searchField,
+    cars: state.requestCars.cars,
+    isPending: state.requestCars.isPending,
+    error: state.requestCars.error
+  };
+};
 
 const mapDispatchToProps = dispatch => {
   return {
-    onSearchChange: (event) => dispatch(setSearchField(event.target.value))
-  }
-}
+    onSearchChange: event => dispatch(setSearchField(event.target.value)),
+    onRequestCars: () => dispatch(requestCars())
+  };
+};
 
 class App extends Component {
-  state = {
-    cars: []
-  };
-
   componentDidMount() {
-    fetch("https://content.sixt.io/codingtasks/offers.json")
-      .then(response => response.json())
-      .then(cars => this.setState({ cars: cars.offers }));
+    this.props.onRequestCars();
   }
 
   onButtonClick = ({ target }) => {
-    const { cars } = this.state;
+    const { cars } = this.props;
     this.setState({
       cars: cars.sort(
         (a, b) => a.sortIndexes[target.value] - b.sortIndexes[target.value]
@@ -40,14 +38,13 @@ class App extends Component {
   };
 
   render() {
-    const { cars } = this.state;
-    const { searchField, onSearchChange } = this.props;
+    const { searchField, onSearchChange, cars, isPending } = this.props;
     const filteredCars = cars.filter(car => {
       return car.carGroupInfo.modelExample.name
         .toLowerCase()
         .includes(searchField.toLowerCase());
     });
-    if (!cars.length) {
+    if (isPending) {
       return <h1 className="f1 tc">Loading...</h1>;
     }
     return (
@@ -65,4 +62,7 @@ class App extends Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);

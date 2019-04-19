@@ -1,6 +1,19 @@
-import { CHANGE_SEARCH_FIELD } from "./constants.js";
+import {
+  CHANGE_SEARCH_FIELD,
+  REQUEST_CARS_PENDING,
+  REQUEST_CARS_SUCESS,
+  REQUEST_CARS_FAILED
+} from "./constants.js";
 
 export const setSearchField = text => ({
   type: CHANGE_SEARCH_FIELD,
   payload: text
 });
+
+export const requestCar = () => dispatch => {
+  dispatch({ type: REQUEST_CARS_PENDING });
+  fetch("https://content.sixt.io/codingtasks/offers.json")
+    .then(response => response.json())
+    .then(data => dispatch({ type: REQUEST_CARS_SUCESS, payload: data }))
+    .catch(error => dispatch({ type: REQUEST_CARS_FAILED, payload: error }))
+}
