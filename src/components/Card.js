@@ -18,9 +18,6 @@ const Card = ({
         <h2>
           Price: {price} {currency}
         </h2>
-        <p>
-          {indexeName} {indexePrice} {indexePopularity}
-        </p>
       </div>
     </div>
   );

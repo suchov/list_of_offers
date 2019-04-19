@@ -12,9 +12,6 @@ const CardList = ({ cars }) => {
             price={car.prices.dayPrice.amount.value}
             currency={car.prices.dayPrice.amount.currency}
             imageUrl={car.carGroupInfo.modelExample.imageUrl}
-            indexeName={car.sortIndexes.name}
-            indexePrice={car.sortIndexes.price}
-            indexePopularity={car.sortIndexes.popularity}
           />
         );
       })}
