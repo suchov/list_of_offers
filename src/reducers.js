@@ -2,7 +2,7 @@ import {
   CHANGE_SEARCH_FIELD,
   ON_BUTTON_CLICK,
   REQUEST_CARS_PENDING,
-  REQUEST_CARS_SUCESS,
+  REQUEST_CARS_SUCCESS,
   REQUEST_CARS_FAILED
 } from "./constants.js";
 
@@ -42,7 +42,7 @@ export const requestCars = (state = initialStateCars, action = {}) => {
   switch (action.type) {
     case REQUEST_CARS_PENDING:
       return Object.assign({}, state, { isPending: true });
-    case REQUEST_CARS_SUCESS:
+    case REQUEST_CARS_SUCCESS:
       return Object.assign({}, state, {
         cars: action.payload,
         isPending: false

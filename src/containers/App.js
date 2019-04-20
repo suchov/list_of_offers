@@ -46,7 +46,7 @@ class App extends Component {
       .filter(car => {
         return car.carGroupInfo.modelExample.name
           .toLowerCase()
-          .includes(searchField.toLowerCase());
+          .includes(searchField.toLowerCase().trim());
       });
     if (isPending) {
       return <h1 className="f1 tc">Loading...</h1>;
