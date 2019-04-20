@@ -18,6 +18,7 @@ Design may be done roughly, just to show the responsive behaviour. Offers should
 In the project directory, you can run:
 
 ### `npm start`
+
 ### `yarn start`
 
 Runs the app in the development mode.<br>
@@ -26,23 +27,25 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br>
 You will also see any lint errors in the console.
 
-## I used small library tachyons [docs](https://tachyons.io/docs/elements/forms/) to help me with some basic styling
+### I used small library tachyons [docs](https://tachyons.io/docs/elements/forms/) to help me with some basic styling
 
 Ping me if you thing I should re-write it in pure CSS
 
-## I took the price form a day price 
+### I took the price form a day price
 
 Let me know if I need to use another one
 
-## I took the image url that is on S3 so there is no CORS problem when running the app
+### I took the image url that links to S3 so there is no CORS problem when running the app
 
-## I also added search so you can search by modes like "X5" or model(brand) audi, bmw, opel...
+LMK if I need to use another one
 
-## I made the pure React version first, for a small application I think I would stay without Redux, you can check it by switching to tag 1
+### I also added search so you can search by modes like "X5" or make(brand) audi, bmw, opel...
 
-## I added redux-logger to easier log the events inside the app
+### I made the pure React version first, for a small application I think I would stay without Redux, you can check it by switching to tag 1 `git checkout 1`
 
-## For fatching data with Redux I used redux-thunk as I found it rather simple for a small app
+### I added redux-logger to easier log the events inside the app
+
+### For fetching data with Redux I used redux-thunk as I found it rather simple for a small app
 
 <!-- 
 ### `npm test`
