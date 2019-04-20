@@ -27,12 +27,15 @@ const initialStateCars = {
 export const requestCars = (state = initialStateCars, action = {}) => {
   switch (action.type) {
     case REQUEST_CARS_PENDING:
-      return Object.assign({}, state, { isPending: true })
+      return Object.assign({}, state, { isPending: true });
     case REQUEST_CARS_SUCESS:
-      return Object.assign({}, state, { cars: action.payload, isPending: false})
+      return Object.assign({}, state, {
+        cars: action.payload,
+        isPending: false
+      });
     case REQUEST_CARS_FAILED:
-      return Object.assign({}, state, { error: action.payload, isPending: false})
+      return Object.assign({}, state, { error: action.payload });
     default:
       return state;
   }
-}
+};

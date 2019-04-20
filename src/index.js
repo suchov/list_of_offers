@@ -11,8 +11,11 @@ import { searchCars, requestCars } from "./reducers";
 import "tachyons";
 
 const logger = createLogger();
-const rootReducer = combineReducers({ searchCars, requestCars })
-const store = createStore(rootReducer, applyMiddleware(thunkMiddleware, logger)); //rootReducer for multiple reducers
+const rootReducer = combineReducers({ searchCars, requestCars });
+const store = createStore(
+  rootReducer,
+  applyMiddleware(thunkMiddleware, logger)
+); //rootReducer for multiple reducers
 
 ReactDOM.render(
   <Provider store={store}>
