@@ -1,5 +1,6 @@
 import {
   CHANGE_SEARCH_FIELD,
+  ON_BUTTON_CLICK,
   REQUEST_CARS_PENDING,
   REQUEST_CARS_SUCESS,
   REQUEST_CARS_FAILED
@@ -9,6 +10,11 @@ export const setSearchField = text => ({
   type: CHANGE_SEARCH_FIELD,
   payload: text
 });
+
+export const setButtonClick = text => ({
+  type: ON_BUTTON_CLICK,
+  payload: text
+})
 
 export const requestCars = () => dispatch => {
   dispatch({ type: REQUEST_CARS_PENDING });

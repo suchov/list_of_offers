@@ -1,5 +1,6 @@
 import {
   CHANGE_SEARCH_FIELD,
+  ON_BUTTON_CLICK,
   REQUEST_CARS_PENDING,
   REQUEST_CARS_SUCESS,
   REQUEST_CARS_FAILED
@@ -35,6 +36,15 @@ export const requestCars = (state = initialStateCars, action = {}) => {
       });
     case REQUEST_CARS_FAILED:
       return Object.assign({}, state, { error: action.payload });
+    default:
+      return state;
+  }
+};
+
+export const sortCars = (state = initialStateCars, action={}) => {
+  switch (action.type) {
+    case ON_BUTTON_CLICK:
+      return Object.assign({}, state, { searchField: action.payload }); //return { ...state, searchField: action.payload } as an option
     default:
       return state;
   }

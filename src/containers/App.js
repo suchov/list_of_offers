@@ -5,7 +5,7 @@ import SearchBox from "../components/SearchBox";
 import Filtering from "../components/Filtering";
 import Scroll from "../components/Scroll";
 import ErrorBoundry from "../components/ErrorBoundry";
-import { setSearchField, requestCars } from "../actions";
+import { setSearchField, requestCars, setButtonClick } from "../actions";
 
 const mapStateToProps = state => {
   return {
@@ -19,6 +19,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     onSearchChange: event => dispatch(setSearchField(event.target.value)),
+    onButtonClick: event => dispatch(setButtonClick(event.target.value)),
     onRequestCars: () => dispatch(requestCars())
   };
 };
@@ -38,7 +39,7 @@ class App extends Component {
   };
 
   render() {
-    const { searchField, onSearchChange, cars, isPending } = this.props;
+    const { searchField, onSearchChange, onButtonClick, cars, isPending } = this.props;
     const filteredCars = cars.filter(car => {
       return car.carGroupInfo.modelExample.name
         .toLowerCase()
@@ -51,7 +52,7 @@ class App extends Component {
       <div className="tc">
         <h1 className="f1">SIXT list</h1>
         <SearchBox searchChange={onSearchChange} />
-        <Filtering nandleClick={this.onButtonClick} />
+        <Filtering nandleClick={onButtonClick} />
         <Scroll>
           <ErrorBoundry>
             <CardList cars={filteredCars} />

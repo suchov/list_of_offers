@@ -7,11 +7,11 @@ import thunkMiddleware from "redux-thunk";
 import "./index.css";
 import App from "./containers/App";
 import * as serviceWorker from "./serviceWorker";
-import { searchCars, requestCars } from "./reducers";
+import { searchCars, requestCars, sortCars } from "./reducers";
 import "tachyons";
 
 const logger = createLogger();
-const rootReducer = combineReducers({ searchCars, requestCars });
+const rootReducer = combineReducers({ searchCars, requestCars, sortCars });
 const store = createStore(
   rootReducer,
   applyMiddleware(thunkMiddleware, logger)
