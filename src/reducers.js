@@ -19,6 +19,19 @@ export const searchCars = (state = initialStateSearch, action = {}) => {
   }
 };
 
+const initialStateButton = {
+  buttonClicked: ""
+};
+
+export const sortCars = (state = initialStateButton, action = {}) => {
+  switch (action.type) {
+    case ON_BUTTON_CLICK:
+      return Object.assign({}, state, { buttonClicked: action.payload }); //return { ...state, searchField: action.payload } as an option
+    default:
+      return state;
+  }
+};
+
 const initialStateCars = {
   isPending: false,
   cars: [],
@@ -36,15 +49,6 @@ export const requestCars = (state = initialStateCars, action = {}) => {
       });
     case REQUEST_CARS_FAILED:
       return Object.assign({}, state, { error: action.payload });
-    default:
-      return state;
-  }
-};
-
-export const sortCars = (state = initialStateCars, action={}) => {
-  switch (action.type) {
-    case ON_BUTTON_CLICK:
-      return Object.assign({}, state, { searchField: action.payload }); //return { ...state, searchField: action.payload } as an option
     default:
       return state;
   }

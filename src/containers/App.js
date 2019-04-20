@@ -10,6 +10,7 @@ import { setSearchField, requestCars, setButtonClick } from "../actions";
 const mapStateToProps = state => {
   return {
     searchField: state.searchCars.searchField,
+    onButtonClick: state.sortCars.buttonClicked,
     cars: state.requestCars.cars,
     isPending: state.requestCars.isPending,
     error: state.requestCars.error
@@ -29,17 +30,14 @@ class App extends Component {
     this.props.onRequestCars();
   }
 
-  onButtonClick = ({ target }) => {
-    const { cars } = this.props;
-    this.setState({
-      cars: cars.sort(
-        (a, b) => a.sortIndexes[target.value] - b.sortIndexes[target.value]
-      )
-    });
-  };
-
   render() {
-    const { searchField, onSearchChange, onButtonClick, cars, isPending } = this.props;
+    const {
+      searchField,
+      onSearchChange,
+      onButtonClick,
+      cars,
+      isPending
+    } = this.props;
     const filteredCars = cars.filter(car => {
       return car.carGroupInfo.modelExample.name
         .toLowerCase()
