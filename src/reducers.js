@@ -13,7 +13,7 @@ const initialStateSearch = {
 export const searchCars = (state = initialStateSearch, action = {}) => {
   switch (action.type) {
     case CHANGE_SEARCH_FIELD:
-      return Object.assign({}, state, { searchField: action.payload }); //return { ...state, searchField: action.payload } as an option
+      return Object.assign({}, state, { searchField: action.payload });
     default:
       return state;
   }
@@ -26,7 +26,7 @@ const initialStateButton = {
 export const sortCars = (state = initialStateButton, action = {}) => {
   switch (action.type) {
     case ON_BUTTON_CLICK:
-      return Object.assign({}, state, { buttonClicked: action.payload }); //return { ...state, searchField: action.payload } as an option
+      return Object.assign({}, state, { buttonClicked: action.payload });
     default:
       return state;
   }

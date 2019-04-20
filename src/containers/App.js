@@ -10,7 +10,7 @@ import { setSearchField, requestCars, setButtonClick } from "../actions";
 const mapStateToProps = state => {
   return {
     searchField: state.searchCars.searchField,
-    onButtonClick: state.sortCars.buttonClicked,
+    buttonClicked: state.sortCars.buttonClicked,
     cars: state.requestCars.cars,
     isPending: state.requestCars.isPending,
     error: state.requestCars.error
@@ -34,15 +34,20 @@ class App extends Component {
     const {
       searchField,
       onSearchChange,
+      buttonClicked,
       onButtonClick,
       cars,
       isPending
     } = this.props;
-    const filteredCars = cars.filter(car => {
-      return car.carGroupInfo.modelExample.name
-        .toLowerCase()
-        .includes(searchField.toLowerCase());
-    });
+    const filteredCars = cars
+      .sort(
+        (a, b) => a.sortIndexes[buttonClicked] - b.sortIndexes[buttonClicked]
+      )
+      .filter(car => {
+        return car.carGroupInfo.modelExample.name
+          .toLowerCase()
+          .includes(searchField.toLowerCase());
+      });
     if (isPending) {
       return <h1 className="f1 tc">Loading...</h1>;
     }
