@@ -21,7 +21,7 @@ export const requestCars = () => dispatch => {
   fetch("https://content.sixt.io/codingtasks/offers.json")
     .then(response => response.json())
     .then(data =>
-      dispatch({ type: REQUEST_CARS_SUCESS, payload: data.offers || [] })
+      dispatch({ type: REQUEST_CARS_SUCESS, payload: data.offers })
     )
     .catch(error => dispatch({ type: REQUEST_CARS_FAILED, payload: error }));
 };

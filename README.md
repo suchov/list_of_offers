@@ -40,6 +40,10 @@ Let me know if I need to use another one
 
 ## I made the pure React version first, for a small application I think I would stay without Redux, you can check it by switching to tag 1
 
+## I added redux-logger to easier log the events inside the app
+
+## For fatching data with Redux I used redux-thunk as I found it rather simple for a small app
+
 <!-- 
 ### `npm test`
 
