@@ -4,7 +4,7 @@ import CardList from "../components/CardList";
 import SearchBox from "../components/SearchBox";
 import Filtering from "../components/Filtering";
 import Scroll from "../components/Scroll";
-import ErrorBoundry from "../components/ErrorBoundry";
+import ErrorBoundary from "../components/ErrorBoundary";
 import { setSearchField, requestCars, setButtonClick } from "../actions";
 
 const mapStateToProps = state => {
@@ -55,11 +55,11 @@ class App extends Component {
       <div className="tc">
         <h1 className="f1">SIXT list</h1>
         <SearchBox searchChange={onSearchChange} />
-        <Filtering nandleClick={onButtonClick} />
+        <Filtering handleClick={onButtonClick} />
         <Scroll>
-          <ErrorBoundry>
+          <ErrorBoundary>
             <CardList cars={filteredCars} />
-          </ErrorBoundry>
+          </ErrorBoundary>
         </Scroll>
       </div>
     );

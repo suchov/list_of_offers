@@ -1,12 +1,12 @@
 import React from "react";
 
-const Filtering = ({ nandleClick }) => {
+const Filtering = ({ handleClick }) => {
   return (
     <div>
       <button
         type="button"
         value="name"
-        onClick={nandleClick}
+        onClick={handleClick}
         className="f6 link dim br3 ma2 ba ph3 pv2 mb2 dib black"
       >
         Sort by Name
@@ -14,7 +14,7 @@ const Filtering = ({ nandleClick }) => {
       <button
         type="button"
         value="price"
-        onClick={nandleClick}
+        onClick={handleClick}
         className="f6 link dim br3 ma2 ba ph3 pv2 mb2 dib black"
       >
         Sort by Price
@@ -22,7 +22,7 @@ const Filtering = ({ nandleClick }) => {
       <button
         type="button"
         value="popularity"
-        onClick={nandleClick}
+        onClick={handleClick}
         className="f6 link dim br3 ma2 ba ph3 pv2 mb2 dib black"
       >
         Sort by Popularity
