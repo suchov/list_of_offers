@@ -1,9 +1,9 @@
 import React from "react";
 import Enzyme, { shallow } from "enzyme";
-import EnzymeAdapter from "enzyme-adapter-react-16";
+import Adapter from "enzyme-adapter-react-16";
 import Card from "./components/Card";
 
-Enzyme.configure({ adapter: new EnzymeAdapter() });
+Enzyme.configure({ adapter: new Adapter() });
 
 test("renders without crashing", () => {
   const wrapper = shallow(<Card />);

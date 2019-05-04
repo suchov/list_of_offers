@@ -3,7 +3,7 @@ import Card from "./Card";
 
 const CardList = ({ cars }) => {
   return (
-    <div>
+    <div data-test="component-carsList">
       {cars.map(car => {
         return (
           <Card
