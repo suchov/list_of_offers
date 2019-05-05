@@ -7,6 +7,7 @@ const SearchBox = ({ searchChange }) => {
         className="pa3 ba b--grey br3 w25"
         type="search"
         placeholder="search by name"
+        data-test="component-search-box"
         onChange={searchChange}
       />
     </div>

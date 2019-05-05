@@ -52,7 +52,7 @@ class App extends Component {
       return <h1 className="f1 tc">Loading...</h1>;
     }
     return (
-      <div className="tc">
+      <div className="tc" data-test="component-app">
         <h1 className="f1">SIXT list</h1>
         <SearchBox searchChange={onSearchChange} />
         <Filtering handleClick={onButtonClick} />

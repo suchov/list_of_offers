@@ -2,7 +2,7 @@ import React from "react";
 
 const Filtering = ({ handleClick }) => {
   return (
-    <div>
+    <div data-test="component-filtering">
       <button
         type="button"
         value="name"
